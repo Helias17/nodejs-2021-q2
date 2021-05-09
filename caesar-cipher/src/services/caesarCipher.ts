@@ -5,6 +5,10 @@ export const caesarCipher = (text: string, shift: number, action: 'encode' | 'de
   const alphabetLength = ENG_ALPHABET.length;
   console.log('alphabetLength', alphabetLength);
   shift = Math.abs(shift) > alphabetLength ? (shift % alphabetLength) : shift;
+  if (action === 'decode') {
+    shift = shift * (-1);
+  }
+
   const inputTextArr = text.split('');
 
   const encodedTextArr = inputTextArr.map((letter) => {

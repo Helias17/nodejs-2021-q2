@@ -7,7 +7,7 @@ import { caesarCipher } from './services/caesarCipher';
 class CaesarCipherTransform extends Transform {
   _transform(buffer: Buffer, encoding: BufferEncoding, cb: TransformCallback) {
     try {
-      const transformedText: string = caesarCipher(buffer.toString(), options.shift, 'encode');
+      const transformedText: string = caesarCipher(buffer.toString(), options.shift, options.action);
       cb(null, transformedText);
     } catch (err) {
       cb(err);
